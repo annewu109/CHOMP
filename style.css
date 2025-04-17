@@ -6,6 +6,8 @@
 
 .page-top {
     background-color:darkseagreen;
+    padding: 60px;
+    margin:0;
 }
   h3 a {
     font-size: large;
