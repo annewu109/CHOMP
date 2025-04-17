@@ -13,8 +13,11 @@ npx nodemon run server.js
 
 ## Customer to Deliverer order communication
 `/order`: sends an order (ingredients and id) in the body
+
 `/order/accept`: used by deliverer to accept an order
+
 `/orders/pending`: used by deliverer to poll pending orders
+
 `/order/status/:id`: used by customer to track order status
 
 ## Future stuff
