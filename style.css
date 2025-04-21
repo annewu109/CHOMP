@@ -6,14 +6,40 @@
 
 .page-top {
     background-color:darkseagreen;
-    padding: 60px;
+    padding: 30px;
     margin:0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.nav-bar {
+  background-color:rgb(198, 222, 198);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+  padding: 3px;
+}
+.nav-bar > ul {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0
+}
+.nav-bar > ul > li {
+  display:inline;
+  padding: 10px;
+  font-size: larger;
+}
+.nav-bar > ul > li:hover {
+  background-color:darkseagreen;
+}
+.nav-bar > ul > li > a {
+  text-decoration: none;
+  color: black;
 }
   h3 a {
     font-size: large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: none;
     text-align: center;
-    background-color: cornflowerblue;
+    background-color: tomato;
+    color:black;
     border-radius: 40px;
     padding: 15px;
     position: absolute;
