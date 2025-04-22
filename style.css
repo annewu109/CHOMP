@@ -52,8 +52,16 @@ h3 a {
     left: 50%;
   }
 
+  h3.order-link a:hover {
+    background-color: rgb(202, 88, 68);
+  }
+
   h3.deliver-link a {
     background-color: darkseagreen;
     top: 60%;
     left: 50%;
+  }
+
+  h3.deliver-link a:hover {
+    background-color: rgb(116, 142, 116);
   }
