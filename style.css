@@ -4,9 +4,15 @@
     font-weight: normal;
 }
 
+#logo {
+  display: block;
+  margin: auto;
+  width: 75px;
+}
+
 .page-top {
     background-color:darkseagreen;
-    padding: 30px;
+    padding: 15px;
     margin:0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
