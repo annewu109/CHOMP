@@ -1,3 +1,7 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .header {
     text-align: center;
     margin: 10px;
@@ -46,31 +50,31 @@
 }
 
 h3 a {
-    font-size: x-large;
+    font-size: large;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: none;
     text-align: center;
     color: black;
     border-radius: 40px;
-    padding: 20px;
+    padding: 15px;
     position: absolute;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
 h3.order-link a {
-    background-color: rgb(253, 117, 93);
+    background-color: tomato;
     top: 50%;
     left: 50%;
 }
 
 h3.order-link a:hover {
-    background-color: rgb(201, 110, 94);
+    background-color: rgb(202, 88, 68);
 }
 
 h3.deliver-link a {
     background-color: darkseagreen;
-    top: 65%;
+    top: 60%;
     left: 50%;
 }
 
@@ -192,7 +196,7 @@ h3.deliver-link a:hover {
 }
 
 .ingredient-list {
-    list-style-type: none;
+    padding-left: 0;
 }
 
 .ingredient-item {
@@ -213,7 +217,7 @@ h3.deliver-link a:hover {
     }
     
     .modal-content {
-        width: 95%;
+        width: minmax(95%, 1fr);
         margin: 10% auto;
         padding: 20px;
     }
