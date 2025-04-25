@@ -51,6 +51,9 @@
                 <h3 class="section-title">Instructions</h3>
                 <div class="instructions" id="recipeInstructions"></div>
             </div>
+            <div class="order-button">
+                <a id="orderButton" href="track.html">Order</a>
+            </div>
         </div>
     </div>
 
@@ -123,6 +126,7 @@
                         ingredientList.appendChild(li);
                     });
                     
+                    document.getElementById('orderButton').href = `track.html?meal_id=${mealId}`;
                     document.getElementById('recipeModal').style.display = 'block';
                 })
                 .catch(error => console.error('Error fetching recipe details:', error));
