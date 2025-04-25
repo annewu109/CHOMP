@@ -3,9 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CHOMP - Order</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+            background: darkseagreen;
+        }
+    </style>
 </head>
 <body>
-    This is a temp order page
+    <div class="page-top">
+        <img id="logo" src="CHOMP-logo.png">
+        <h1 class="header">CHOMP</h1>
+        <h3 class="header">
+            <strong>C</strong>onsumer <strong>H</strong>ealth <strong>O</strong>riented <strong>M</strong>eal <strong>P</strong>repping
+        </h3>
+    </div>
+    <div class="nav-bar">
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <br/>
+    <br/>
+    <div class="recipe-grid" id="recipeContainer">
+        <!-- Recipes will be loaded here from PHP -->
+    </div>
+
+    <!-- Recipe Modal -->
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalRecipeTitle"></h2>
+                <img src="" alt="Recipe Image" class="modal-image" id="modalRecipeImage">
+            </div>
+            <div class="ingredients-section">
+                <h3 class="section-title">Ingredients</h3>
+                <ul class="ingredient-list" id="ingredientList">
+                    <!-- Ingredients will be loaded here from PHP -->
+                </ul>
+            </div>
+            <div class="instructions-section">
+                <h3 class="section-title">Instructions</h3>
+                <div class="instructions" id="recipeInstructions"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchRecipes();
+
+            document.querySelector('.close-btn').addEventListener('click', function() {
+                document.getElementById('recipeModal').style.display = 'none';
+            });
+            
+            window.addEventListener('click', function(event) {
+                if (event.target === document.getElementById('recipeModal')) {
+                    document.getElementById('recipeModal').style.display = 'none';
+                }
+            });
+        });
+
+        function fetchRecipes() {
+            fetch('get_recipes.php')
+                .then(response => response.json())
+                .then(data => {
+                    displayRecipes(data);
+                })
+                .catch(error => console.error('Error fetching recipes:', error));
+        }
+
+        function displayRecipes(recipes) {
+            const container = document.getElementById('recipeContainer');
+            container.innerHTML = '';
+            
+            recipes.forEach(recipe => {
+                const card = document.createElement('div');
+                card.className = 'recipe-card';
+                card.innerHTML = `
+                    <img src="${recipe.image_url}" alt="${recipe.name}" class="recipe-image">
+                    <div class="recipe-info">
+                        <h3 class="recipe-title">${recipe.name}</h3>
+                        <p class="recipe-description">${recipe.description}</p>
+                        <span class="calories-badge">${recipe.total_calories} calories</span>
+                    </div>
+                `;
+                
+                card.addEventListener('click', function() {
+                    showRecipeDetails(recipe.meal_id);
+                });
+                
+                container.appendChild(card);
+            });
+        }
+
+        function showRecipeDetails(mealId) {
+            fetch(`get_recipe_details.php?meal_id=${mealId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('modalRecipeTitle').textContent = data.meal.name;
+                    document.getElementById('modalRecipeImage').src = data.meal.image_url;
+                    document.getElementById('recipeInstructions').textContent = data.meal.recipe;
+                    
+                    const ingredientList = document.getElementById('ingredientList');
+                    ingredientList.innerHTML = '';
+                    
+                    data.ingredients.forEach(ingredient => {
+                        const li = document.createElement('li');
+                        li.className = 'ingredient-item';
+                        li.innerHTML = `
+                            <span>${ingredient.quantity_required} ${ingredient.unit} ${ingredient.name}</span>
+                            <span>${ingredient.calories_per_unit * ingredient.quantity_required} cal</span>
+                        `;
+                        ingredientList.appendChild(li);
+                    });
+                    
+                    document.getElementById('recipeModal').style.display = 'block';
+                })
+                .catch(error => console.error('Error fetching recipe details:', error));
+        }
+    </script>
 </body>
 </html>

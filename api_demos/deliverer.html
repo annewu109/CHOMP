@@ -34,7 +34,7 @@
     <script>
         async function loadPendingOrders() {
             try {
-                const response = await fetch('http://localhost:3000/orders/pending');
+                const response = await fetch('https://chomp-apis-8eaf05731f53.herokuapp.com/orders/pending');
                 if (!response.ok) {
                     throw new Error('Failed to fetch orders');
                 }
@@ -69,7 +69,7 @@
         
         async function acceptOrder(orderId) {
             try {
-                const response = await fetch('http://localhost:3000/order/accept', {
+                const response = await fetch('https://chomp-apis-8eaf05731f53.herokuapp.com/order/accept', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ orderId })
