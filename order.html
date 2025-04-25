@@ -51,25 +51,39 @@
                 <h3 class="section-title">Instructions</h3>
                 <div class="instructions" id="recipeInstructions"></div>
             </div>
-            <div class="order-button">
-                <a id="orderButton" href="track.html">Order</a>
+            <div id="orderButtonDiv" class="order-button order-button-hover">
+                <a id="orderButton" href="track.html" target="_blank">Order</a>
             </div>
         </div>
     </div>
 
     <script>
+        let inOrder = false;
+
+        if (!localStorage.getItem('userId')) {
+            window.location.href = 'user_login.html';
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             fetchRecipes();
+            currentlyInOrder();
 
             document.querySelector('.close-btn').addEventListener('click', function() {
                 document.getElementById('recipeModal').style.display = 'none';
             });
-            
+
             window.addEventListener('click', function(event) {
                 if (event.target === document.getElementById('recipeModal')) {
                     document.getElementById('recipeModal').style.display = 'none';
+                    currentlyInOrder();
                 }
             });
+        });
+
+        const orderButton = document.getElementById('orderButton');
+        orderButton.addEventListener('click', function(e) {
+            document.getElementById('recipeModal').style.display = 'none';
+            inOrder = true;
         });
 
         function fetchRecipes() {
@@ -126,10 +140,37 @@
                         ingredientList.appendChild(li);
                     });
                     
-                    document.getElementById('orderButton').href = `track.html?meal_id=${mealId}`;
+                    if (inOrder) {
+                        orderButton.textContent = 'Another order currently in progress...';
+                        orderButton.onclick = function(e) {
+                            e.preventDefault();
+                            return false;
+                        };
+                        orderButton.style.pointerEvents = 'none';
+                        orderButton.style.opacity = '0.5';
+                        orderButton.href = '#';
+                        document.getElementById('orderButtonDiv').classList.remove('order-button-hover');
+                    } else {
+                        orderButton.textContent = 'Order';
+                        orderButton.style.pointerEvents = 'auto';
+                        orderButton.href = `track.html?meal_id=${mealId}`;
+                        orderButton.style.opacity = '1.0';
+                        document.getElementById('orderButtonDiv').classList.add('order-button-hover');
+                    }
                     document.getElementById('recipeModal').style.display = 'block';
                 })
                 .catch(error => console.error('Error fetching recipe details:', error));
+        }
+
+        async function currentlyInOrder() {
+            const response = await fetch(`https://chomp-apis-8eaf05731f53.herokuapp.com/profile/${localStorage.getItem('userId')}`);
+            const data = await response.json();
+            
+            if (data.inOrder) {
+                inOrder = true;
+            } else {
+                inOrder = false;
+            }
         }
     </script>
 </body>
