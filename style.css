@@ -18,12 +18,10 @@
     background-color: darkseagreen;
     padding: 15px;
     margin: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .nav-bar {
     background-color: rgb(198, 222, 198);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     padding: 3px;
 }
@@ -51,7 +49,6 @@
 
 h3 a {
     font-size: x-large;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: none;
     text-align: center;
     color: black;
@@ -60,12 +57,12 @@ h3 a {
     position: absolute;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    left: 50%;
 }
 
 h3.order-link a {
     background-color: rgb(253, 117, 93);;
     top: 50%;
-    left: 50%;
 }
 
 h3.order-link a:hover {
@@ -75,11 +72,27 @@ h3.order-link a:hover {
 h3.deliver-link a {
     background-color: darkseagreen;
     top: 65%;
-    left: 50%;
 }
 
 h3.deliver-link a:hover {
     background-color: rgb(116, 142, 116);
+}
+
+@media (max-width: 450px) {
+    h3.deliver-link a {
+        top: 70%;
+    }
+}
+
+.bgrd-img {
+    background: linear-gradient(rgba(0,0,0, 0.3), rgba(0,0,0, 0.3)), no-repeat center/100%
+      url('home-background.jpg');
+      min-height: 100%;
+    max-height: inherit;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .form-wrapper {
