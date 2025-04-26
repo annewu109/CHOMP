@@ -3,15 +3,18 @@
 }
 
 .header {
+    display:inline;
     text-align: center;
     margin: 10px;
+    vertical-align: middle;
     font-weight: normal;
 }
 
 #logo {
-    display: block;
+    display: inline;
     margin: auto;
-    width: 75px;
+    vertical-align: middle;
+    width: 60px;
     cursor: pointer;
 }
 
@@ -88,7 +91,7 @@ h3.deliver-link a:hover {
 .bgrd-img {
     background: linear-gradient(rgba(0,0,0, 0.3), rgba(0,0,0, 0.3)), no-repeat center/100%
       url('home-background.jpg');
-      min-height: 100%;
+    min-height: 100%;
     max-height: inherit;
     background-position: center;
     background-repeat: no-repeat;
@@ -135,6 +138,15 @@ h3.deliver-link a:hover {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
 }
 
 .login-button {

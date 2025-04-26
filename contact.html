@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CHOMP - Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            height: 100vh;
+            margin:0;
+        }
+    </style>
 </head>
 <body>
-    temp contact page
+    <div class="bgrd-img">
+        <div class="page-top">
+            <a id="logo-link" href="index.html"><img id="logo" src="CHOMP-logo.png"></a>
+            <h1 class="header">CHOMP</h1>
+            <!-- <h3 class="header">
+                <strong>C</strong>onsumer <strong>H</strong>ealth <strong>O</strong>riented <strong>M</strong>eal <strong>P</strong>repping
+            </h3> -->
+        </div>
+        <div class="nav-bar">
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="form-wrapper"> 
+            <form class="form-container" action="send_support.php" method="post">
+            <h2>Contact</h2>
+            <p>Need help? Send us a message and we’ll get back to you as soon as possible.</p>
+            
+            <div class="form-group">
+              <label for="name">Name:</label><br>
+              <input type="text" id="name" name="name" required><br><br>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email:</label><br>
+              <input type="email" id="email" name="email" required><br><br>
+            </div>
+
+              <div class="form-group">
+              <label for="message">Message:</label><br>
+              <textarea id="message" name="message" rows="5" required></textarea><br><br>
+            </div>
+
+              <input type="submit" class="login-button" value="Submit">
+            </form>
+        </div>
+        
 </body>
 </html>
