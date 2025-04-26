@@ -12,6 +12,7 @@
     display: block;
     margin: auto;
     width: 75px;
+    cursor: pointer;
 }
 
 .page-top {
