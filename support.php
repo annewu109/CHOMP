@@ -1,6 +1,6 @@
 <?php include 'header.php'; ?>
 <div style="padding: 20px; max-width: 600px; margin: auto;">
-  <h2>Support</h2>
+  <h2>Contact</h2>
   <p>Need help? Send us a message and we’ll get back to you as soon as possible.</p>
   <form action="send_support.php" method="post">
     <label for="name">Name:</label><br>
