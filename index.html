@@ -10,6 +10,42 @@
             height: 100vh;
             margin:0;
         }
+        .order {
+            background-color: rgb(253, 117, 93);
+        }
+        .deliver {
+            background-color: darkseagreen;
+        }
+        .recipe-card{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 20px;
+            margin-top: 50px;
+            width: 400px;
+            text-decoration: none;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        h3{
+            display: block;
+        }
+        img {
+            height: 100%;
+        }
+        .bText {
+            color: inherit;
+            display: block;
+            width: fit-content;
+        }
+        h3 {
+            font-size: x-large;
+            text-align: center;
+            color: white;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
@@ -17,19 +53,28 @@
         <div class="page-top">
             <a id="logo-link" href="index.html"><img id="logo" src="CHOMP-logo.png"></a>
             <h1 class="header">CHOMP</h1>
-            <!-- <h3 class="header">
-                <strong>C</strong>onsumer <strong>H</strong>ealth <strong>O</strong>riented <strong>M</strong>eal <strong>P</strong>repping
-            </h3> -->
         </div>
         <div class="nav-bar">
             <ul>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="subscriptions.html">Plans</a></li>
             </ul>
         </div>
-        
-        <h3 class="order-link"> <a href="user_login.html">Order Groceries</a></h3>
-        <h3 class="deliver-link"> <a href="deliverer_login.html">Deliver Groceries</a></h3>
+
+        <div class="container">
+            
+              <a class="recipe-card order" href="user_login.html">
+                <img src="images/1.png" alt="">
+                <h3>Order Groceries</h3>
+              </a>
+          
+              <a class="recipe-card deliver" href="deliverer_login.html">
+                <img src="images/2.png" alt="">
+                <h3>Deliver Groceries</h3>
+              </a>
+            </div>
+    
     </div>
 
 </body>

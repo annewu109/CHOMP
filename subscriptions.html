@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHOMP - Plans & Pricing</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            height: 100vh;
+            margin:0;
+        }
+        #tagline {
+            display: flex;
+            flex-direction: column;
+            font-style: italic;
+            align-items: center;
+            margin: 30px;
+        }
+        .plans {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 40px;
+        }
+        .plan {
+            background: rgba(255, 255, 255, 0.9);
+            border: solid 1px lightgrey;
+            border-radius: 15px;
+            padding: 20px;
+            flex: 1 1 300px; 
+            max-width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .plan h2 {
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 24px;
+            color: #4CAF50;
+            margin: 10px 0;
+        }
+        .features {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .features li {
+            margin: 10px 0;
+        }
+        button {
+            background-color: rgb(253, 117, 93);
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            margin: 10px;
+            color: white;
+            font-weight: bolder;
+            font-size: larger;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .form-container {
+            text-align: center;
+        }
+
+        @media (max-width: 1000px) {
+            .plans {
+                flex-direction: row;
+                justify-content: center;
+            }
+            .plan {
+                flex: 1 1 45%;
+                max-width: 45%;
+            }
+        }
+    
+        @media (max-width: 600px) {
+            .plans {
+                flex-direction: column;
+                align-items: center;
+            }
+            .plan {
+                flex: 1 1 90%;
+                max-width: 90%;
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="bgrd-img">
+        <div class="page-top">
+            <a id="logo-link" href="index.html"><img id="logo" src="CHOMP-logo.png"></a>
+            <h1 class="header">CHOMP
+            </h1>
+        </div>
+        <div class="nav-bar">
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="subscriptions.html">Plans</a></li>
+            </ul>
+        </div>
+
+        <div class="form-wrapper">
+            <div class="form-container">
+                <h1>Plans and Pricing</h1>
+
+                <div class="plans">
+                    <div class="plan tier1">
+                        <h2>Starter Plan</h2>
+                        <div class="price">$9.99/month</div>
+                        <ul class="features">
+                            <li>Access to 20+ curated recipes</li>
+                            <li>Auto-generated grocery lists</li>
+                            <li>1-click grocery cart creation</li>
+                            <li>Email support</li>
+                        </ul>
+                        <button>Subscribe now!</button>
+                    </div>
+
+                    <div class="plan tier2">
+                        <h2>Pro Plan</h2>
+                        <div class="price">$19.99/month</div>
+                        <ul class="features">
+                            <li>Access to 75+ rotating recipes</li>
+                            <li>Custom meal planning tools</li>
+                            <li>Grocery delivery scheduling</li>
+                            <li>Priority customer support</li>
+                        </ul>
+                        <button>Subscribe now!</button>
+                    </div>
+
+                    <div class="plan tier3">
+                        <h2>Family Plan</h2>
+                        <div class="price">$29.99/month</div>
+                        <ul class="features">
+                            <li>Access to 150+ family-sized recipes</li>
+                            <li>Multi-user meal planning</li>
+                            <li>Bulk grocery discounts</li>
+                            <li>Dedicated account manager</li>
+                        </ul>
+                        <button>Subscribe now!</button>
+                    </div>
+                </div>
+
+                <div id="tagline">
+                    <h2>Eat Smarter. Live Better. CHOMP Makes It Easy.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

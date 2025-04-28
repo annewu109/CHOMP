@@ -55,16 +55,16 @@ h3 a {
     font-size: x-large;
     text-decoration: none;
     text-align: center;
-    color: black;
-    border-radius: 40px;
+    color: white;
+    border-radius: 20px;
     padding: 20px;
-    position: absolute;
+    /* position: absolute;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    left: 50%;
+    left: 50%; */
 }
 
-h3.order-link a {
+/* h3.order-link a {
     background-color: rgb(253, 117, 93);;
     top: 50%;
 }
@@ -81,12 +81,12 @@ h3.deliver-link a {
 h3.deliver-link a:hover {
     background-color: rgb(116, 142, 116);
 }
-
-@media (max-width: 450px) {
+*/
+@media (max-width: 500px) {
     h3.deliver-link a {
-        top: 70%;
+        font-size: 1rem;
     }
-}
+} 
 
 .bgrd-img {
     background: linear-gradient(rgba(0,0,0, 0.3), rgba(0,0,0, 0.3)), no-repeat center/100%
