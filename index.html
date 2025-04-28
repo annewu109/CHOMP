@@ -22,29 +22,28 @@
             justify-content: center;
             margin: 20px;
             margin-top: 50px;
-            width: 400px;
+            width: 250px;
             text-decoration: none;
         }
+        @media (max-width: 500px) {
+            .recipe-card {
+                font-size: 1rem;
+                max-width: 400px;
+            }
+        } 
         .container {
             display: flex;
             justify-content: center;
         }
-        h3{
-            display: block;
-        }
         img {
             height: 100%;
-        }
-        .bText {
-            color: inherit;
-            display: block;
-            width: fit-content;
+            max-height: 300px;
         }
         h3 {
+            display: block;
             font-size: x-large;
             text-align: center;
             color: white;
-            padding: 5px;
         }
     </style>
 </head>
@@ -61,6 +60,7 @@
                 <li><a href="subscriptions.html">Plans</a></li>
             </ul>
         </div>
+
 
         <div class="container">
             
