@@ -22,29 +22,28 @@
             justify-content: center;
             margin: 20px;
             margin-top: 50px;
-            width: 400px;
+            width: 250px;
             text-decoration: none;
         }
+        @media (max-width: 500px) {
+            .recipe-card {
+                font-size: 1rem;
+                max-width: 400px;
+            }
+        } 
         .container {
             display: flex;
             justify-content: center;
         }
-        h3{
-            display: block;
-        }
         img {
             height: 100%;
-        }
-        .bText {
-            color: inherit;
-            display: block;
-            width: fit-content;
+            max-height: 300px;
         }
         h3 {
+            display: block;
             font-size: x-large;
             text-align: center;
             color: white;
-            padding: 5px;
         }
     </style>
 </head>
@@ -63,12 +62,11 @@
         </div>
 
         <div class="container">
-            
               <a class="recipe-card order" href="user_login.html">
                 <img src="images/2.png" alt="">
                 <h3>Order Groceries</h3>
               </a>
-          
+
               <a class="recipe-card deliver" href="deliverer_login.html">
                 <img src="images/1.png" alt="">
                 <h3>Deliver Groceries</h3>

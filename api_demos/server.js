@@ -23,7 +23,9 @@ const userSchema = new mongoose.Schema({
     username: { type: String, unique: true },
     password: String,
     role: { type: String, default: 'user' },
-    inOrder: { type: Boolean, default: false }
+    inOrder: { type: Boolean, default: false },
+    mealId: { type: Number, default: -1 },
+    orderId: String
 });
 
 const User = mongoose.model('User', userSchema);
@@ -113,7 +115,9 @@ app.get("/profile/:userId", async (req, res) => {
             firstName: user.firstName,
             lastName: user.lastName,
             address: user.address,
-            inOrder: user.inOrder
+            inOrder: user.inOrder,
+            mealId: user.mealId,
+            orderId: user.orderId
         });
     } catch (error) {
         res.status(500).json({ error: "Server error" });
@@ -140,6 +144,12 @@ app.post("/order", async (req, res) => {
         if (!user) {
             return res.status(404).json({ success: false, message: "User not found" });
         }
+
+        await User.findByIdAndUpdate(
+            req.body.userId,
+            { mealId: req.body.mealId },
+            { new: true }
+        );
         
         const order = new Order({
             ingredients: req.body.ingredients,
@@ -151,6 +161,12 @@ app.post("/order", async (req, res) => {
         if (!order) {
             return res.status(404).json({ success: false, message: "Order not found" });
         }
+
+        await User.findByIdAndUpdate(
+            req.body.userId,
+            { orderId: order._id },
+            { new: true }
+        );
 
         res.json({ success: true, orderId: order._id });
     } catch (error) {
@@ -212,7 +228,7 @@ app.post("/order/deliver", async (req, res) => {
 
         const user = await User.findByIdAndUpdate(
             order.userId,
-            { inOrder: false },
+            { inOrder: false, mealId: -1 },
             { new: true }
         );
 

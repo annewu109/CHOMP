@@ -333,3 +333,19 @@ h3.deliver-link a:hover {
         padding: 20px;
     }
 }
+
+.deliver-button {
+    display: grid;
+    justify-self: center;
+    text-align: center;
+    background-color: darkseagreen;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 1.5rem;
+}
+
+.deliver-button-hover:hover {
+    background-color: rgb(198, 222, 198);
+    pointer-events: all;
+}
