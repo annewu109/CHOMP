@@ -55,6 +55,13 @@
             border-radius: 8px;
             margin-bottom: 15px;
         }
+        .ingredients-title {
+            font-size: 1.3rem;
+            color: black;
+            margin-bottom: 15px;
+            border-bottom: 2px solid darkseagreen;
+            padding-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -62,14 +69,6 @@
         <a id="logo-link" href="index.html"><img id="logo" src="CHOMP-logo.png"></a>
             <h1 class="header">CHOMP</h1>
     </div>
-    <div class="nav-bar">
-        <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="subscriptions.html">Plans</a></li>
-        </ul>
-    </div>
-
     <div class="route-container" id="orderContainer">
         <h2 class="route-title">Your Delivery Route</h2>
         <div id="deliverButtonDiv" class="deliver-button deliver-button-hover">
@@ -77,6 +76,12 @@
         </div>
         <br/>
 
+        <div class="ingredients-section">
+            <h3 class="ingredients-title">Ingredients to buy</h3>
+            <ul class="ingredient-list" id="ingredientList">
+                <!-- Ingredients will be loaded here -->
+            </ul>
+        </div>
         <div id="map"></div>
         <div id="routeInfo"></div>
     </div>
@@ -256,6 +261,18 @@
         document.addEventListener('DOMContentLoaded', async function() {
             const order = await fetch(`https://chomp-apis-8eaf05731f53.herokuapp.com/order/status/${orderId}`);
             const data = await order.json();
+
+            const ingredientList = document.getElementById('ingredientList');
+            ingredientList.innerHTML = '';
+            
+            data.order.ingredients.forEach(ingredient => {
+                const li = document.createElement('li');
+                li.className = 'ingredient-item';
+                li.innerHTML = `
+                    <span>${ingredient}</span>
+                `;
+                ingredientList.appendChild(li);
+            });
 
             calculateRoute(data.order.address);
         });
